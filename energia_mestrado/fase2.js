@@ -67,9 +67,12 @@ let desafioAtual = 0;
 let timerInterval = null;
 let tempoRestante = 10;
 
+let vidasGlobais = 3;
+
 // Vidas globais compartilhadas entre as fases
-if (window.vidasGlobais === undefined) {
-  window.vidasGlobais = 3;
+if (sessionStorage.getItem("vidas")) {
+  console.log("to aqui!", vidasGlobais)
+  vidasGlobais = parseInt(sessionStorage.getItem("vidas"));
 }
 
 // Elemento de vidas
@@ -80,23 +83,56 @@ function renderVidas() {
   vidasRaios.innerHTML = '';
   for (let i = 0; i < 3; i++) {
     const raio = document.createElement('span');
-    raio.className = 'raio ' + (i < window.vidasGlobais ? 'vida-on' : 'vida-off');
+    raio.className = 'raio ' + (i < vidasGlobais ? 'vida-on' : 'vida-off');
     raio.textContent = '⚡';
     vidasRaios.appendChild(raio);
   }
 }
 
 function perderVida() {
-  window.vidasGlobais--;
+  vidasGlobais--;
+  sessionStorage.setItem("vidas", vidasGlobais.toString());
   renderVidas();
-  if (window.vidasGlobais <= 0) {
+  if (vidasGlobais <= 0) {
     setTimeout(() => {
-      window.vidasGlobais = 3;
-      renderVidas();
-      desafioAtual = 0;
-      renderDesafio();
+      mostrarGameOver();
     }, 1200);
   }
+}
+
+function mostrarGameOver() {
+  // Limpar timer se estiver rodando
+  if (timerInterval) clearInterval(timerInterval);
+  removerTimerCircular();
+  
+  // Ocultar feedback de erro se estiver visível
+  feedbackErro.classList.add('hidden');
+  
+  // Mostrar modal de game over
+  const modalGameOver = document.getElementById('modal-game-over');
+  modalGameOver.style.display = 'flex';
+}
+
+function reiniciarFase() {
+  vidasGlobais = 3;
+  sessionStorage.setItem("vidas", vidasGlobais.toString());
+  renderVidas();
+  desafioAtual = 0;
+  
+  // Ocultar modal de game over
+  const modalGameOver = document.getElementById('modal-game-over');
+  modalGameOver.style.display = 'none';
+  
+  // Reiniciar desafio
+  renderDesafio();
+}
+
+function voltarAoMenu() {
+  // Resetar vidas no sessionStorage
+  sessionStorage.setItem('vidas', '3');
+  
+  // Redirecionar para o menu principal
+  window.location.href = 'index.html';
 }
 
 const painelElementos = document.getElementById('painel-elementos');
@@ -251,6 +287,18 @@ btnTentarNovamente.onclick = () => {
   feedbackErro.classList.add('hidden');
   removerTimerCircular();
   renderDesafio();
+};
+
+// Event listeners para modal de game over
+const btnTentarFaseNovamente = document.getElementById('btn-tentar-fase-novamente');
+const btnVoltarMenu = document.getElementById('btn-voltar-menu');
+
+btnTentarFaseNovamente.onclick = () => {
+  reiniciarFase();
+};
+
+btnVoltarMenu.onclick = () => {
+  voltarAoMenu();
 };
 
 // Inicialização
