@@ -49,14 +49,18 @@
       <div class="painel-botoes" id="painel-botoes"></div>
     </div>
     <div id="feedback-erro" class="hidden">
-      <span id="mensagem-erro"></span>
-      <button id="btn-tentar-novamente">Tentar Novamente</button>
+      <div class="feedback-erro-conteudo">
+        <i class="fa-solid fa-triangle-exclamation feedback-erro-icon"></i>
+        <span id="mensagem-erro"></span>
+        <button id="btn-tentar-novamente">Tentar Novamente</button>
+      </div>
     </div>
   </div>
   <div id="ajudante-fase2">
     <img src="assets/helper.png" alt="Ajudante">
     <div id="ajudante-balao">
       <span id="ajudante-dica"></span>
+      <button id="reexibir-dica" title="Reexibir dica">💬</button>
     </div>
   </div>
   <audio id="som-fluxo" src="assets/fluxo.mp3"></audio>
