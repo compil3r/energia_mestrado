@@ -226,6 +226,8 @@ function escolherOpcao(idx) {
       exibirDica('Parabéns! Você religou a estação!');
       botoesDiv.innerHTML = '';
       mostrarSequenciaFinal();
+      sessionStorage.setItem("vidas", vidas);
+      window.location.href = "fase2.html";
     }
   } else {
     painelEtapas[etapaAtual].classList.add('erro');
