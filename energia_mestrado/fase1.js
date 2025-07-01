@@ -237,8 +237,8 @@ function escolherOpcao(idx) {
     atualizarVidas();
     if (vidas <= 0) {
       setTimeout(() => {
-        reiniciarFase();
-      }, 900);
+        mostrarGameOver();
+      }, 1200);
       return;
     }
     exibirDica(etapas[etapaAtual].dica);
@@ -246,6 +246,12 @@ function escolherOpcao(idx) {
       painelEtapas[etapaAtual].classList.remove('erro');
     }, 700);
   }
+}
+
+function mostrarGameOver() {
+  // Mostrar modal de game over
+  const modalGameOver = document.getElementById('modal-game-over');
+  modalGameOver.style.display = 'flex';
 }
 
 function reiniciarFase() {
@@ -257,6 +263,18 @@ function reiniciarFase() {
   painelEtapas.forEach(e => { e.classList.remove('ativa', 'erro'); });
   atualizarBotoes();
   exibirDica(etapas[0].dica);
+  
+  // Ocultar modal de game over se estiver visível
+  const modalGameOver = document.getElementById('modal-game-over');
+  modalGameOver.style.display = 'none';
+}
+
+function voltarAoMenu() {
+  // Resetar vidas no sessionStorage
+  sessionStorage.setItem('vidas', '3');
+  
+  // Redirecionar para o menu principal
+  window.location.href = 'index.html';
 }
 
 function mostrarSequenciaFinal() {
@@ -274,6 +292,20 @@ function mostrarSequenciaFinal() {
 
 reexibirDicaBtn.onclick = () => {
   exibirDica(dicaAtual);
+};
+
+// Event listeners para modal de game over
+const btnTentarFaseNovamente = document.getElementById('btn-tentar-fase-novamente');
+const btnVoltarMenu = document.getElementById('btn-voltar-menu');
+
+btnTentarFaseNovamente.onclick = () => {
+  // Resetar vidas e recarregar a fase 1
+  sessionStorage.setItem('vidas', '3');
+  window.location.href = 'fase1.html';
+};
+
+btnVoltarMenu.onclick = () => {
+  voltarAoMenu();
 };
 
 // Início

@@ -362,7 +362,7 @@ body.fase2-bg {
   pointer-events: none;
 }
 
-#painel-vidas {
+#vidas-container {
   position: fixed;
   top: 18px;
   left: 50%;
