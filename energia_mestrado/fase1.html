@@ -6,6 +6,7 @@
   <title>Fase 1 - O Painel Quebrado</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="fase1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body class="fase1-bg">
   <canvas id="bg-estacao"></canvas>
@@ -40,6 +41,19 @@
     <div id="painel-algoritmo">
       <h3 id="algoritmo-titulo">Algoritmo</h3>
       <ol id="algoritmo-lista"></ol>
+    </div>
+  </div>
+  <div id="modal-game-over" class="modal-intro" style="display: none;">
+    <div class="modal-conteudo modal-game-over">
+      <i class="fa-solid fa-bolt-slash game-over-icon"></i>
+      <h2>Game Over</h2>
+      <p>A energia foi completamente perdida!<br><br>
+      Suas tentativas se esgotaram e a estação ficou no escuro. Mas não desista - todo bom técnico aprende com seus erros.<br><br>
+      <b>Dica:</b> Siga os passos na ordem correta e preste atenção nas dicas do ajudante.</p>
+      <div class="modal-game-over-botoes">
+        <button id="btn-tentar-fase-novamente">Tentar Novamente</button>
+        <button id="btn-voltar-menu">Voltar ao Menu</button>
+      </div>
     </div>
   </div>
   <div id="ajudante-fase1">

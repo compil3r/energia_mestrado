@@ -351,4 +351,59 @@ body.fase1-bg {
   border: 2px solid #fff200;
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 4px 16px #fff20033;
+}
+
+/* Modal Game Over */
+.modal-game-over {
+  text-align: center;
+}
+
+.game-over-icon {
+  font-size: 4em;
+  color: #c92a2a;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 12px #c92a2a88);
+  animation: pulse-danger 2s infinite ease-in-out;
+}
+
+@keyframes pulse-danger {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px #c92a2a88);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px #c92a2aaa);
+  }
+}
+
+.modal-game-over h2 {
+  color: #c92a2a !important;
+  text-shadow: 0 0 12px #c92a2a55;
+  margin-bottom: 24px;
+}
+
+.modal-game-over-botoes {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.modal-game-over-botoes button {
+  flex: 1;
+  min-width: 140px;
+  margin: 0;
+}
+
+#btn-voltar-menu {
+  background: #888ca0 !important;
+  color: #fff !important;
+}
+
+#btn-voltar-menu:hover {
+  background: #fff !important;
+  color: #888ca0 !important;
+  border: 2px solid #888ca0 !important;
 } 

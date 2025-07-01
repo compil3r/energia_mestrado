@@ -114,17 +114,11 @@ function mostrarGameOver() {
 }
 
 function reiniciarFase() {
-  vidasGlobais = 3;
-  sessionStorage.setItem("vidas", vidasGlobais.toString());
-  renderVidas();
-  desafioAtual = 0;
+  // Resetar vidas no sessionStorage e voltar para a fase 1
+  sessionStorage.setItem('vidas', '3');
   
-  // Ocultar modal de game over
-  const modalGameOver = document.getElementById('modal-game-over');
-  modalGameOver.style.display = 'none';
-  
-  // Reiniciar desafio
-  renderDesafio();
+  // Redirecionar para a fase 1
+  window.location.href = 'fase1.html';
 }
 
 function voltarAoMenu() {
