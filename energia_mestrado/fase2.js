@@ -11,7 +11,8 @@ const desafios = [
       { texto: 'Amarelo', cor: 'amarelo' }
     ],
     correta: 1,
-    dica: 'Conte as lâmpadas acesas e procure o botão azul.'
+    dica: 'Conte as lâmpadas acesas e procure o botão azul.',
+    dicaInicial: 'Observe as lâmpadas no painel e leia a condição com atenção!'
   },
   {
     elementos: { lampadas: [true, true, false, false], fios: ['verde', 'amarelo', 'azul'], display: 4 },
@@ -23,7 +24,8 @@ const desafios = [
       { texto: 'Vermelho', cor: 'vermelho' }
     ],
     correta: 0,
-    dica: 'Mais de duas acesas? Verde!'
+    dica: 'Mais de duas acesas? Verde!',
+    dicaInicial: 'Conte quantas lâmpadas estão acesas para tomar a decisão.'
   },
   {
     elementos: { lampadas: [false, true, true, true], fios: ['vermelho', 'azul', 'verde'], display: 7 },
@@ -35,7 +37,8 @@ const desafios = [
       { texto: 'Amarelo', cor: 'amarelo' }
     ],
     correta: 0,
-    dica: 'Ímpar = vermelho.'
+    dica: 'Ímpar = vermelho.',
+    dicaInicial: 'Verifique se o número no display é par ou ímpar.'
   },
   {
     elementos: { lampadas: [true, false, true, false, true], fios: ['amarelo', 'azul'], display: 6 },
@@ -47,7 +50,8 @@ const desafios = [
       { texto: 'Vermelho', cor: 'vermelho' }
     ],
     correta: 0,
-    dica: 'Três acesas? Amarelo!'
+    dica: 'Três acesas? Amarelo!',
+    dicaInicial: 'Conte exatamente quantas lâmpadas estão acesas neste painel.'
   },
   {
     elementos: { lampadas: [true, true, true, true, false], fios: ['vermelho', 'verde', 'azul', 'amarelo'], display: 8 },
@@ -59,7 +63,8 @@ const desafios = [
       { texto: 'Vermelho', cor: 'vermelho' }
     ],
     correta: 0,
-    dica: 'Todos diferentes? Azul!'
+    dica: 'Todos diferentes? Azul!',
+    dicaInicial: 'Examine as cores dos fios com cuidado para ver se são únicos.'
   }
 ];
 
@@ -143,7 +148,18 @@ const fecharModal2 = document.getElementById('fechar-modal2');
 const painelLampadas = document.getElementById('painel-lampadas');
 const painelFios = document.getElementById('painel-fios');
 const painelDisplay = document.getElementById('painel-display');
+const reexibirDicaBtn = document.getElementById('reexibir-dica');
+
 fecharModal2.onclick = () => { modalIntro2.style.display = 'none'; };
+
+// Variável para armazenar a dica atual
+let dicaAtualFase2 = '';
+
+reexibirDicaBtn.onclick = () => {
+  if (dicaAtualFase2) {
+    ajudanteDica.textContent = dicaAtualFase2;
+  }
+};
 
 function corNo(cor) {
   switch (cor) {
@@ -200,7 +216,11 @@ function renderDesafio() {
     btn.onclick = () => escolherBotao(idx);
     painelBotoes.appendChild(btn);
   });
-  ajudanteDica.textContent = '';
+  // Mostrar dica inicial para cada desafio
+  setTimeout(() => {
+    dicaAtualFase2 = desafio.dicaInicial;
+    ajudanteDica.textContent = dicaAtualFase2;
+  }, 500);
   renderVidas();
 }
 
@@ -225,7 +245,8 @@ function iniciarTimer() {
     if (tempoRestante <= 0) {
       clearInterval(timerInterval);
       mostrarErro('Tempo esgotado! Tente novamente.');
-      ajudanteDica.textContent = 'Seja mais rápido na próxima!';
+      dicaAtualFase2 = 'Seja mais rápido na próxima!';
+      ajudanteDica.textContent = dicaAtualFase2;
       perderVida();
       removerTimerCircular();
     }
@@ -251,9 +272,15 @@ function escolherBotao(idx) {
   if (idx === desafio.correta) {
     somFluxo.currentTime = 0;
     somFluxo.play();
+    
+    // Mostrar mensagem de acerto antes de ir para o próximo
+    ajudanteDica.textContent = 'Excelente! Você acertou!';
+    
     desafioAtual++;
     if (desafioAtual < desafios.length) {
-      renderDesafio();
+      setTimeout(() => {
+        renderDesafio();
+      }, 1200);
     } else {
       painelCondicao.textContent = 'Parabéns! Você completou todos os desafios do painel!';
       painelLampadas.innerHTML = '';
@@ -267,7 +294,8 @@ function escolherBotao(idx) {
     somErro.currentTime = 0;
     somErro.play();
     mostrarErro('Ops! Resposta errada. Tente de novo!');
-    ajudanteDica.textContent = desafio.dica;
+    dicaAtualFase2 = desafio.dica;
+    ajudanteDica.textContent = dicaAtualFase2;
     perderVida();
   }
 }
@@ -297,4 +325,18 @@ btnVoltarMenu.onclick = () => {
 
 // Inicialização
 modalIntro2.style.display = 'flex';
-renderDesafio(); 
+renderDesafio();
+
+// Mensagem de boas-vindas inicial
+setTimeout(() => {
+  if (desafioAtual === 0) {
+    dicaAtualFase2 = 'Bem-vindo ao painel avançado! Vou te ajudar com dicas úteis.';
+    ajudanteDica.textContent = dicaAtualFase2;
+    setTimeout(() => {
+      if (desafioAtual === 0) {
+        dicaAtualFase2 = desafios[0].dicaInicial;
+        ajudanteDica.textContent = dicaAtualFase2;
+      }
+    }, 3000);
+  }
+}, 1000); 

@@ -211,34 +211,48 @@ body.fase2-bg {
 }
 
 #feedback-erro {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #c92a2aee;
-  color: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 16px #c92a2a55;
-  padding: 28px 38px;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20,22,30,0.92);
+  z-index: 100;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  z-index: 10;
-  font-size: 1.1em;
-  font-weight: 600;
-  gap: 18px;
+  justify-content: center;
 }
 #feedback-erro.hidden {
   display: none;
 }
+.feedback-erro-conteudo {
+  background: #23243a;
+  color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px #000a, 0 0 0 6px #1a1a2a;
+  padding: 38px 38px 28px 38px;
+  max-width: 420px;
+  text-align: center;
+  font-size: 1.15rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.feedback-erro-icon {
+  font-size: 3em;
+  color: #c92a2a;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 12px #c92a2a88);
+  animation: pulse-danger 2s infinite ease-in-out;
+}
 #btn-tentar-novamente {
+  margin-top: 12px;
+  font-size: 1.1em;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 8px;
   background: #fff200;
   color: #23243a;
   font-weight: 700;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 32px;
-  font-size: 1.1em;
   cursor: pointer;
   box-shadow: 0 2px 12px #0002;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
@@ -293,6 +307,20 @@ body.fase2-bg {
   border-right: 18px solid #23243a;
 }
 
+#reexibir-dica {
+  background: none;
+  border: none;
+  color: #fff200;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: color 0.2s;
+}
+
+#reexibir-dica:hover {
+  color: #fff;
+}
+
 .modal-intro {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -308,7 +336,7 @@ body.fase2-bg {
   border-radius: 18px;
   box-shadow: 0 8px 40px #000a, 0 0 0 6px #1a1a2a;
   padding: 38px 38px 28px 38px;
-  max-width: 480px;
+  max-width: 420px;
   text-align: center;
   font-size: 1.15rem;
   position: relative;
