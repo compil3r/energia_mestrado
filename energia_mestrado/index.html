@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Cidade sem Energia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="background">
+    <!-- Camada de prédios ao fundo -->
+    <canvas id="city-canvas-bg"></canvas>
+    <!-- Camada de prédios em destaque -->
+    <canvas id="city-canvas"></canvas>
+    <div id="powerline"></div>
+  </div>
+  <header>
+    <h1 id="game-title"></h1>
+  </header>
+  <main>
+    <p id="welcome-text">Um apagão atingiu a cidade. As estações estão desligadas.<br>Você é o técnico responsável por resolver isso... usando lógica e inteligência.</p>
+    <div id="menu-buttons">
+      <button id="start-btn">Iniciar Jogo</button>
+      <button id="howto-btn">Como Jogar</button>
+      <button id="exit-btn">Sair</button>
+    </div>
+  </main>
+  <div id="helper-character">
+    <!-- Imagem ou SVG do personagem ajudante -->
+    <img src="assets/helper.png" alt="Personagem ajudante">
+  </div>
+  <audio id="bg-sound" src="assets/ambience.wav" loop></audio>
+  <audio id="hover-sound" src="assets/hover2.wav"></audio>
+  <audio id="start-sound" src="assets/hover.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html> 

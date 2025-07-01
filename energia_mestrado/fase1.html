@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 1 - O Painel Quebrado</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fase1.css">
+</head>
+<body class="fase1-bg">
+  <canvas id="bg-estacao"></canvas>
+  <div id="vidas-container">
+    <span id="vidas-titulo">Vidas:</span>
+    <span id="vidas-raios">
+      <span class="raio vida-on">⚡</span>
+      <span class="raio vida-on">⚡</span>
+      <span class="raio vida-on">⚡</span>
+    </span>
+  </div>
+  <div id="modal-intro" class="modal-intro">
+    <div class="modal-conteudo">
+      <h2>O Painel Quebrado</h2>
+      <p>Você entrou na sala de controle da primeira estação. Tudo está escuro, o painel principal está apagado e há fumaça saindo de um canto.<br><br>
+      Sua missão: religar a energia seguindo os passos corretos, como um verdadeiro técnico!<br><br>
+      Mas cuidado: se errar demais, a estação pode entrar em colapso e será preciso tentar de novo.<br><br>
+      Boa sorte, técnico! A cidade conta com você.</p>
+      <button id="fechar-modal">Começar!</button>
+    </div>
+  </div>
+  <div id="painel-container">
+    <div id="painel">
+      <div class="painel-etapa" id="etapa-0"></div>
+      <div class="painel-etapa" id="etapa-1"></div>
+      <div class="painel-etapa" id="etapa-2"></div>
+      <div class="painel-etapa" id="etapa-3"></div>
+      <div id="painel-fumaca"></div>
+      <div id="painel-luz-emergencia"></div>
+    </div>
+    <div id="painel-botoes"></div>
+    <div id="painel-algoritmo">
+      <h3 id="algoritmo-titulo">Algoritmo</h3>
+      <ol id="algoritmo-lista"></ol>
+    </div>
+  </div>
+  <div id="ajudante-fase1">
+    <img src="assets/helper.png" alt="Ajudante">
+    <div id="ajudante-balao">
+      <span id="ajudante-dica"></span>
+      <button id="reexibir-dica" title="Reexibir dica">💬</button>
+    </div>
+  </div>
+  <audio id="painel-erro" src="assets/painel_falha.mp3"></audio>
+  <audio id="painel-acerto" src="assets/painel_acerto.wav"></audio>
+  <audio id="painel-falha" src="assets/ambience.wav" loop></audio>
+  <script src="fase1.js"></script>
+</body>
+</html> 

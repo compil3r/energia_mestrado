@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(180deg, #23243a 0%, #3a3b52 100%);
+  min-height: 100vh;
+  color: #eaeaea;
+  overflow: hidden;
+}
+
+#background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+#city-canvas {
+  position: absolute;
+  width: 100vw;
+  height: 50vh;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  filter: none;
+  z-index: 1;
+}
+
+#city-canvas-bg {
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  filter: blur(8px) brightness(0.7);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+#powerline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 30px;
+  background: transparent;
+  border-top: 4px dashed #fff200;
+  z-index: 2;
+  animation: flicker 2s infinite;
+}
+
+#smoke {
+  position: absolute;
+  top: 60px;
+  left: 30vw;
+  width: 200px;
+  height: 80px;
+  background: radial-gradient(ellipse at center, #fff3 60%, transparent 100%);
+  filter: blur(8px);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+header {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin-top: 48px;
+}
+
+#game-title {
+  font-family: 'Orbitron', 'Share Tech Mono', 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 3.2rem;
+  color: #fff;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 8px #fff200cc,
+    0 0 16px #fff20055,
+    0 2px 12px #2228;
+  transition: text-shadow 0.3s, color 0.3s;
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border-radius: 12px;
+  background: rgba(30,32,48,0.18);
+  box-shadow: 0 2px 16px #fff20011;
+  position: relative;
+  overflow: hidden;
+}
+
+.letter-flicker {
+  color: #fff200;
+  text-shadow:
+    0 0 12px #fff200,
+    0 0 24px #fff20099,
+    0 2px 12px #2228;
+  animation: flicker 1.2s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.7; }
+  20% { opacity: 0.4; }
+  22% { opacity: 1; }
+  30% { opacity: 0.8; }
+  32% { opacity: 1; }
+  50% { opacity: 0.6; }
+  60% { opacity: 1; }
+}
+
+main {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#welcome-text {
+  color: #fff;
+  background: rgba(30,32,48,0.85);
+  padding: 28px 36px;
+  border-radius: 16px;
+  margin: 38px auto 36px auto;
+  font-size: 1.18rem;
+  max-width: 520px;
+  text-align: center;
+  box-shadow: 0 4px 24px #0003;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+#menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#menu-buttons button {
+  font-size: 1.1rem;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 7px;
+  background: #fff200;
+  color: #23243a;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #0002;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+  position: relative;
+  border: 2px solid #fff200;
+}
+
+#menu-buttons button:hover {
+  background: #23243a;
+  color: #fff200;
+  border: 2px solid #fff200;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px #fff20033;
+}
+
+#helper-character {
+  position: fixed;
+  bottom: 18px;
+  right: 24px;
+  z-index: 4;
+  width: 60px;
+  height: 60px;
+  opacity: 0.85;
+  display: flex;
+  align-items: flex-end;
+}
+
+#helper-character img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #0003;
+} 

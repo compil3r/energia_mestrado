@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 2 - O Painel das Decisões</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fase2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="fase2-bg">
+  <div id="vidas-container">
+    <span id="vidas-titulo">Vidas:</span>
+    <span id="vidas-raios"></span>
+  </div>
+  <div id="modal-intro2" class="modal-intro">
+    <div class="modal-conteudo">
+      <h2>Painel das Decisões</h2>
+      <p>Você chegou ao centro de controle avançado da cidade!<br><br>
+      Agora, para religar setores críticos, é preciso analisar rapidamente o painel e tomar decisões lógicas baseadas em luzes, fios, números e símbolos.<br><br>
+      Cada desafio traz uma condição diferente. Observe os elementos, leia a instrução e clique no botão correto para manter a energia circulando.<br><br>
+      A cada acerto, a dificuldade aumenta. Boa sorte, técnico!<br><br>
+      <b>Dica:</b> O ajudante está sempre pronto para dar uma pista se você errar.</p>
+      <button id="fechar-modal2">Começar!</button>
+    </div>
+  </div>
+  <div id="painel2-container">
+    <div class="painel-fundo">
+      <div class="painel-topo">
+        <div class="painel-fios painel-fios-esq" id="painel-fios-esq"></div>
+        <div class="painel-lampadas" id="painel-lampadas"></div>
+        <div class="painel-fios painel-fios-dir" id="painel-fios-dir"></div>
+      </div>
+      <div class="painel-display" id="painel-display"></div>
+      <div id="painel-condicao"></div>
+      <div class="painel-botoes" id="painel-botoes"></div>
+    </div>
+    <div id="feedback-erro" class="hidden">
+      <span id="mensagem-erro"></span>
+      <button id="btn-tentar-novamente">Tentar Novamente</button>
+    </div>
+  </div>
+  <div id="ajudante-fase2">
+    <img src="assets/helper.png" alt="Ajudante">
+    <div id="ajudante-balao">
+      <span id="ajudante-dica"></span>
+    </div>
+  </div>
+  <audio id="som-fluxo" src="assets/fluxo.mp3"></audio>
+  <audio id="som-erro" src="assets/erro2.wav"></audio>
+  <script src="fase2.js"></script>
+</body>
+</html> 
