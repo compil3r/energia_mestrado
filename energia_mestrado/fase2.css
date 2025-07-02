@@ -483,4 +483,28 @@ body.fase2-bg {
   background: #fff !important;
   color: #888ca0 !important;
   border: 2px solid #888ca0 !important;
+}
+
+/* Efeito de fade-out para transições */
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+/* Feedback visual de sucesso */
+.painel-fundo.painel-sucesso {
+  border-color: #51cf66;
+  box-shadow: 0 12px 60px #000a, 0 0 0 12px #1a1a2a, 0 2px 0 0 #fff2 inset, 0 0 30px 8px #51cf6688;
+  animation: pulse-success 1.2s ease-in-out;
+}
+
+@keyframes pulse-success {
+  0%, 100% {
+    border-color: #51cf66;
+    box-shadow: 0 12px 60px #000a, 0 0 0 12px #1a1a2a, 0 2px 0 0 #fff2 inset, 0 0 30px 8px #51cf6688;
+  }
+  50% {
+    border-color: #51cf66;
+    box-shadow: 0 12px 60px #000a, 0 0 0 12px #1a1a2a, 0 2px 0 0 #fff2 inset, 0 0 50px 12px #51cf66aa;
+  }
 } 
