@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Jogar - A Cidade sem Energia</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ajuda.css">
+</head>
+<body>
+  <div id="background">
+    <!-- Camada de prédios ao fundo -->
+    <canvas id="city-canvas-bg"></canvas>
+    <!-- Camada de prédios em destaque -->
+    <canvas id="city-canvas"></canvas>
+    <div id="powerline"></div>
+  </div>
+  
+  <div id="help-overlay">
+    <div id="help-container">
+      <h1>Como Jogar</h1>
+      
+      <div id="help-content">
+        <div class="help-section">
+          <h2>🎯 Objetivo do Jogo</h2>
+          <p>Este jogo foi desenvolvido para ensinar conceitos fundamentais de lógica de programação de forma divertida e interativa. Você é um técnico responsável por restaurar a energia da cidade através da resolução de problemas lógicos.</p>
+        </div>
+
+        <div class="help-section">
+          <h2>⚡ Fase 1: Algoritmos</h2>
+          <div class="phase-content">
+            <div class="phase-text">
+              <p><strong>Conceito:</strong> Aprenda sobre sequências lógicas e algoritmos básicos.</p>
+              <p><strong>Objetivo:</strong> Conecte os cabos seguindo a sequência correta para restaurar a energia das estações.</p>
+              <p><strong>Como jogar:</strong></p>
+              <ul>
+                <li>Clique nos cabos na ordem correta</li>
+                <li>Siga a lógica da sequência apresentada</li>
+                <li>Complete todas as conexões para avançar</li>
+              </ul>
+            </div>
+            <div class="phase-screenshot">
+              <div class="screenshot-placeholder">
+                <span>📸 Screenshot da Fase 1</span>
+                <p>Imagem será adicionada aqui</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2>🔀 Fase 2: Condicionais</h2>
+          <div class="phase-content">
+            <div class="phase-text">
+              <p><strong>Conceito:</strong> Aprenda sobre estruturas condicionais (if/else) e tomada de decisões.</p>
+              <p><strong>Objetivo:</strong> Analise as condições dos painéis e tome as decisões corretas para restaurar a energia.</p>
+              <p><strong>Como jogar:</strong></p>
+              <ul>
+                <li>Observe os indicadores dos painéis</li>
+                <li>Tome decisões baseadas nas condições apresentadas</li>
+                <li>Use lógica condicional para resolver os problemas</li>
+              </ul>
+            </div>
+            <div class="phase-screenshot">
+              <div class="screenshot-placeholder">
+                <span>📸 Screenshot da Fase 2</span>
+                <p>Imagem será adicionada aqui</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2>💡 Dicas Importantes</h2>
+          <div class="tips-grid">
+            <div class="tip-item">
+              <strong>🎧 Som:</strong> Use fones de ouvido para uma melhor experiência
+            </div>
+            <div class="tip-item">
+              <strong>🤔 Pense:</strong> Analise bem antes de agir
+            </div>
+            <div class="tip-item">
+              <strong>🔄 Pratique:</strong> Você pode repetir as fases quantas vezes quiser
+            </div>
+            <div class="tip-item">
+              <strong>📚 Aprenda:</strong> Cada erro é uma oportunidade de aprendizado
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="help-buttons">
+        <button id="back-btn">Voltar ao Menu</button>
+        <button id="start-game-btn">Começar a Jogar</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bg-sound" src="assets/ambience.wav" loop></audio>
+  <audio id="hover-sound" src="assets/hover2.wav"></audio>
+  <audio id="start-sound" src="assets/hover.wav"></audio>
+  <script src="ajuda.js"></script>
+</body>
+</html>
