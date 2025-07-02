@@ -1,0 +1,266 @@
+/* Estilos específicos para a tela de ajuda */
+
+#help-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(35, 36, 58, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+#help-container {
+  background: rgba(30, 32, 48, 0.95);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 242, 0, 0.1);
+  border: 2px solid rgba(255, 242, 0, 0.2);
+}
+
+#help-container h1 {
+  font-family: 'Orbitron', 'Share Tech Mono', 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 2.5rem;
+  color: #fff200;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 12px rgba(255, 242, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+#help-content {
+  margin-bottom: 30px;
+}
+
+.help-section {
+  margin-bottom: 35px;
+  padding: 25px;
+  background: rgba(45, 46, 66, 0.6);
+  border-radius: 15px;
+  border-left: 4px solid #fff200;
+}
+
+.help-section h2 {
+  color: #fff200;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.help-section p {
+  color: #eaeaea;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.help-section ul {
+  color: #eaeaea;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.help-section li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.phase-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 25px;
+  align-items: start;
+  margin-top: 15px;
+}
+
+.phase-text {
+  flex: 1;
+}
+
+.phase-screenshot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screenshot-placeholder {
+  width: 280px;
+  height: 200px;
+  background: rgba(35, 36, 58, 0.8);
+  border: 2px dashed rgba(255, 242, 0, 0.4);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgba(234, 234, 234, 0.7);
+  font-size: 0.9rem;
+}
+
+.screenshot-placeholder span {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #fff200;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.tip-item {
+  background: rgba(35, 36, 58, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 242, 0, 0.2);
+  color: #eaeaea;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.tip-item strong {
+  color: #fff200;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#help-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#help-buttons button {
+  font-size: 1.1rem;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+#back-btn {
+  background: rgba(45, 46, 66, 0.8);
+  color: #eaeaea;
+  border-color: rgba(234, 234, 234, 0.3);
+}
+
+#back-btn:hover {
+  background: rgba(234, 234, 234, 0.1);
+  border-color: #eaeaea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(234, 234, 234, 0.2);
+}
+
+#start-game-btn {
+  background: #fff200;
+  color: #23243a;
+  border-color: #fff200;
+}
+
+#start-game-btn:hover {
+  background: #23243a;
+  color: #fff200;
+  border-color: #fff200;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 242, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #help-container {
+    padding: 25px;
+    margin: 10px;
+  }
+  
+  #help-container h1 {
+    font-size: 2rem;
+  }
+  
+  .phase-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .screenshot-placeholder {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #help-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #help-buttons button {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  #help-overlay {
+    padding: 10px;
+  }
+  
+  #help-container {
+    padding: 20px;
+  }
+  
+  .help-section {
+    padding: 20px;
+  }
+  
+  #help-container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .help-section h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Scrollbar customizada */
+#help-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+#help-container::-webkit-scrollbar-track {
+  background: rgba(45, 46, 66, 0.3);
+  border-radius: 4px;
+}
+
+#help-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 242, 0, 0.4);
+  border-radius: 4px;
+}
+
+#help-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 242, 0, 0.6);
+}

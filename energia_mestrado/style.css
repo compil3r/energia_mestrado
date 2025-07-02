@@ -181,4 +181,10 @@ main {
   height: auto;
   border-radius: 50%;
   box-shadow: 0 2px 8px #0003;
-} 
+}
+
+/* Efeito de fade-out para transições */
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
