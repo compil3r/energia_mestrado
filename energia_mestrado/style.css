@@ -169,15 +169,15 @@ main {
   bottom: 18px;
   right: 24px;
   z-index: 4;
-  width: 60px;
-  height: 60px;
-  opacity: 0.85;
+  width:150px;
+  height:150px;
+  opacity: 1;
   display: flex;
   align-items: flex-end;
 }
 
 #helper-character img {
-  width: 100%;
+  width: 150px;
   height: auto;
   border-radius: 50%;
   box-shadow: 0 2px 8px #0003;

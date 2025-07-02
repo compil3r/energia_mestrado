@@ -275,9 +275,10 @@ body.fase2-bg {
   gap: 12px;
 }
 #ajudante-fase2 img {
-  width: 64px;
-  height: 64px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  transform: scaleX(-1);
   box-shadow: 0 2px 8px #0003;
 }
 #ajudante-balao {

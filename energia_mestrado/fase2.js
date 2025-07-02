@@ -16,7 +16,7 @@ const desafios = [
   },
   {
     elementos: { lampadas: [true, true, false, false], fios: ['verde', 'amarelo', 'azul'], display: 4 },
-    condicao: 'Se houver mais de duas lâmpadas acesas, clique no botão verde. Senão, clique no botão amarelo.',
+    condicao: 'Se houver duas ou mais lâmpadas acesas, clique no botão verde. Senão, clique no botão amarelo.',
     botoes: [
       { texto: 'Verde', cor: 'verde' },
       { texto: 'Amarelo', cor: 'amarelo' },
@@ -54,7 +54,7 @@ const desafios = [
     dicaInicial: 'Conte exatamente quantas lâmpadas estão acesas neste painel.'
   },
   {
-    elementos: { lampadas: [true, true, true, true, false], fios: ['vermelho', 'verde', 'azul', 'amarelo'], display: 8 },
+    elementos: { lampadas: [true, true, true, true, false], fios: ['vermelho', 'verde', 'azul', 'amarelo'], display: 6 },
     condicao: 'Se todos os fios forem de cores diferentes, clique no botão azul. Senão, clique no botão verde.',
     botoes: [
       { texto: 'Azul', cor: 'azul' },
@@ -150,7 +150,11 @@ const painelFios = document.getElementById('painel-fios');
 const painelDisplay = document.getElementById('painel-display');
 const reexibirDicaBtn = document.getElementById('reexibir-dica');
 
-fecharModal2.onclick = () => { modalIntro2.style.display = 'none'; };
+fecharModal2.onclick = () => { 
+  modalIntro2.style.display = 'none'; 
+  iniciarTimer();
+
+};
 
 // Variável para armazenar a dica atual
 let dicaAtualFase2 = '';
@@ -206,7 +210,6 @@ function renderDesafio() {
   painelCondicao.textContent = desafio.condicao;
   // Timer circular
   renderTimerCircular();
-  iniciarTimer();
   // Botões (embaixo, em linha)
   painelBotoes.innerHTML = '';
   desafio.botoes.forEach((botao, idx) => {
