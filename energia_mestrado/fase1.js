@@ -227,7 +227,11 @@ function escolherOpcao(idx) {
       botoesDiv.innerHTML = '';
       mostrarSequenciaFinal();
       sessionStorage.setItem("vidas", vidas);
-      window.location.href = "fase2.html";
+      // Adicionar fade-out antes de redirecionar
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "fase2.html";
+      }, 600);
     }
   } else {
     painelEtapas[etapaAtual].classList.add('erro');
@@ -273,8 +277,11 @@ function voltarAoMenu() {
   // Resetar vidas no sessionStorage
   sessionStorage.setItem('vidas', '3');
   
-  // Redirecionar para o menu principal
-  window.location.href = 'index.html';
+  // Adicionar fade-out antes de redirecionar
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = 'index.html';
+  }, 600);
 }
 
 function mostrarSequenciaFinal() {
@@ -301,7 +308,11 @@ const btnVoltarMenu = document.getElementById('btn-voltar-menu');
 btnTentarFaseNovamente.onclick = () => {
   // Resetar vidas e recarregar a fase 1
   sessionStorage.setItem('vidas', '3');
-  window.location.href = 'fase1.html';
+  // Adicionar fade-out antes de redirecionar
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = 'fase1.html';
+  }, 600);
 };
 
 btnVoltarMenu.onclick = () => {

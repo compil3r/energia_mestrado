@@ -122,16 +122,32 @@ function reiniciarFase() {
   // Resetar vidas no sessionStorage e voltar para a fase 1
   sessionStorage.setItem('vidas', '3');
   
-  // Redirecionar para a fase 1
-  window.location.href = 'fase1.html';
+  // Adicionar fade-out antes de redirecionar
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = 'fase1.html';
+  }, 600);
 }
 
 function voltarAoMenu() {
   // Resetar vidas no sessionStorage
   sessionStorage.setItem('vidas', '3');
   
-  // Redirecionar para o menu principal
-  window.location.href = 'index.html';
+  // Adicionar fade-out antes de redirecionar
+  document.body.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = 'index.html';
+  }, 600);
+}
+
+// Função para mostrar feedback visual de sucesso
+function mostrarFeedbackSucesso() {
+  const painelFundo = document.querySelector('.painel-fundo');
+  painelFundo.classList.add('painel-sucesso');
+  
+  setTimeout(() => {
+    painelFundo.classList.remove('painel-sucesso');
+  }, 1200);
 }
 
 const painelElementos = document.getElementById('painel-elementos');
@@ -153,7 +169,6 @@ const reexibirDicaBtn = document.getElementById('reexibir-dica');
 fecharModal2.onclick = () => { 
   modalIntro2.style.display = 'none'; 
   iniciarTimer();
-
 };
 
 // Variável para armazenar a dica atual
@@ -225,6 +240,9 @@ function renderDesafio() {
     ajudanteDica.textContent = dicaAtualFase2;
   }, 500);
   renderVidas();
+  
+  // Reiniciar timer sempre com 10 segundos
+  iniciarTimer();
 }
 
 function renderTimerCircular() {
@@ -239,6 +257,7 @@ function renderTimerCircular() {
 }
 
 function iniciarTimer() {
+  // BUGFIX: Sempre resetar para 10 segundos
   tempoRestante = 10;
   atualizarTimerCircular();
   if (timerInterval) clearInterval(timerInterval);
@@ -275,6 +294,9 @@ function escolherBotao(idx) {
   if (idx === desafio.correta) {
     somFluxo.currentTime = 0;
     somFluxo.play();
+    
+    // Mostrar feedback visual de sucesso
+    mostrarFeedbackSucesso();
     
     // Mostrar mensagem de acerto antes de ir para o próximo
     ajudanteDica.textContent = 'Excelente! Você acertou!';
